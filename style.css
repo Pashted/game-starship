@@ -1,0 +1,27 @@
+body {
+    color: #333;
+    background: darkslategrey;
+}
+
+#wrapper {
+    width: 900px;
+    margin: 0 auto;
+}
+
+canvas {
+    cursor: none;
+}
+
+#panel {
+    position: absolute;
+}
+
+h3 {
+    font-size: 28px;
+    color: yellow;
+}
+
+h4 {
+    font-size: 28px;
+    color: #f55;
+}
