@@ -1,3 +1,9 @@
+/* TODO: сделать 3 уровня астероидов с разными размерами и кол-вом хп
+*   2 жизни у корабля
+*   переключение на ручную стрельбу мышкой
+*/
+
+
 let canvas = $("#game"),
     context = canvas[0].getContext('2d'),
 
@@ -100,9 +106,9 @@ let update = () => {
 
         for (let j in fire) {
 
+            // столкновение пули с астероидом
             if (Math.abs(aster[i].x + 37.5 - fire[j].x - 15) < 50 &&
                 Math.abs(aster[i].y - fire[j].y) < 25) {
-                // столкновение пули с астероидом
 
                 expl.push({
                     x:     aster[i].x - 14,
@@ -111,24 +117,25 @@ let update = () => {
                     animy: 0
                 });
 
-                aster[i].del = 1;
+                aster[i].del = 1; // отложенное удаление астероида
                 fire.splice(j, 1);
 
                 break;
             }
-
         }
 
         if (Math.abs(aster[i].x + 37.5 - ship.x - 37.5) < 75 &&
             Math.abs(aster[i].y + 37.5 - ship.y - 19.5) < 50) {
             console.log(123);
-            status.append('. ');
+            // status.append('. ');
+
+            // TODO: доделать столкновение корабля с астероидами
 
         }
 
         if (aster[i].del === 1) {
             aster.splice(i, 1);
-            score += 1;
+            score++;
             log.html(score);
         }
 
@@ -174,7 +181,6 @@ let requestAnimFrame = (() => {
         window.msRequestAnimationFrame ||
         function (callback) {
             window.setTimeout(callback, 1000 / 20);
-            console.log(123);
         };
 })();
 
